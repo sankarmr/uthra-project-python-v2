@@ -1,12 +1,28 @@
 from sqlalchemy import create_engine, text
+import os
 
-db_connection = "mysql+pymysql://adir7s1srtejmiv4o2zf:pscale_pw_6RGydXtatyQONeocJNICmTHrbxGMfXMeTkNtVWgbeh6@aws.connect.psdb.cloud:3306/uthrasproject?"
+print(type(os.environ['DB_CONNECT']))
+
+db_connection = os.environ['DB_CONNECT']
 
 engine = create_engine(db_connection,
                        connect_args={"ssl": {
                          "ssl_ca": "/etc/ssl/cert.pem"
                        }})
 
-with engine.connect() as conn:
-  result = conn.execute(text("select * from jobs"))
-  print(result.all())
+
+def load_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(text("select * from jobs"))
+    jobs = []
+    for row in result.all():
+      jobs.append(row._mapping)
+    return jobs
+
+  #result_all = result.all()
+  #print(type(result))
+  #print("type of result_all: ", type(result_all))
+  #print(result_all[0])
+  #first_result = result_all[0]._mapping
+  #print("type of frist result: ", type(first_result))
+  #print(first_result)

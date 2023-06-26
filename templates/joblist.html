@@ -3,7 +3,7 @@
           <h4 style="color: rgb(120,120,120)">{{job['title']}}</h4>
           <div><b>Location:</b> {{job['location']}}</div>
           {% if 'salary' in job %}          
-          <div>Salary: {{job['salary']}}</div>
+          <div>Salary: {{job['currency']}} {{job['salary']}}</div>
           {%endif%}
   </div>
   <div class="col-3">
