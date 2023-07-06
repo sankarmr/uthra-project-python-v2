@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{jobs.title}} - Job Details</title>
+  {%include 'bootstrap.html'%}
+</head>
+  <body>
+    {%include 'nav.html'%}
+    {%include 'banner.html'%}
+    <div class="container">
+    <h1 class="text-center" style="color: rgb(80, 80, 80);">Job Details</h1>
+    </div>
+    <div class="container">
+      
+      <h3 class="text-secondary">{{jobs.title}}</h3>
+      <h5>Location</h5>
+      <p>{{jobs.location}}</p>
+      <h5>Responsibilities</h5>
+      <ul>
+        {% for line in jobs.responsibilities.split("\n")%}
+          <li>{{line}}</li>
+        {%endfor%}
+      </ul>      
+      <h5>Requirements</h5>
+      <ol>
+        {% for lines in jobs.requirements.split("\n")%}
+          <li>{{lines}}</li>
+        {%endfor%}
+      </ol>
+      <h5>Salary</h5>
+      <p>{{jobs.currency}}{{jobs.salary}}</p>
+    </div>
+    <form action="/job/{{id}}" method="post">      
+    <div class="container">
+    <h1 class="text-center" style="color: rgb(80, 80, 80);">Apply Here</h1>
+    </div>
+    <div class="container">
+    <div class="row">
+      <div class="col-4">      
+      <div class="form-group">
+        <label for="fullname">Your Name</label>
+        <input type="text" class="form-control mt-2" name="fullname" id="fullname" placeholder="Full Name" required>
+      </div>
+      <div class="form-group mt-3">
+        <label for="email">Valid Email</label>
+        <input type="email" class="form-control mt-2" name="email" id="email" placeholder="Email">
+      </div> 
+      <div class="form-group mt-3">
+        <label for="linkedin_url">LinkedIn URL</label>
+        <input type="url" class="form-control mt-2" name="linkedin_url" id="linkedin_url" placeholder="Your LinkedIn URL">
+      </div>
+      <div class="form-group mt-3">
+        <label for="education">Education</label>
+        <textarea class="form-control mt-2" name="education" id="education" rows="4" placeholder="Your Education"></textarea>
+      </div>
+      <div class="form-group mt-3">
+        <label for="experience">Work Experience</label>
+        <textarea class="form-control mt-2" name="experience" id="experience" rows="4" placeholder="Work Experience"></textarea>
+      </div>
+        <div class="form-group mt-3">
+        <label for="resume_url">LinkedIn URL</label>
+        <input type="url" class="form-control mt-2" name="resume_url" id="resume_url" placeholder="Your Resume URL">
+      </div>
+      </div>              
+    </div>
+      <input type="submit" class="btn btn-primary mt-4" value="Submit" />
+    </div> 
+      </form>
+    {%include 'footer.html'%}
+  </body>
+</html>
