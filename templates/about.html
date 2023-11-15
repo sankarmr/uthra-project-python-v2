@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Us</title>
+    {%include 'bootstrap.html'%}
+  </head>
+  <body>
+    <div class="container-fluid fixed-top bg-white pt-2">
+       <div class="row justify-content-between">
+        <div class="col-4">
+          <div>
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <img src="https://uthra-project-python-v2--sankarmr.repl.co/static/U-icon.png" width="40" height="40" class="ms-3" />          
+            </a>
+          </div>
+        </div>
+      <div class="col-4">
+        <div>
+          <ul class="nav justify-content-center">
+            <li><a href="/" class="nav-link px-2 reset-btn">Home</a></li>
+            <li><a href="/contactus" class="nav-link px-2 reset-btn">Contact Us</a></li>
+            <li><a href="/about" class="nav-link px-2 link-secondary reset-btn">About</a></li>        
+            </ul>          
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="nav justify-content-end">
+          <a href="/login" class="btn reset-btn me-2 mb-1 mb-md-0" type="button">Login</a>
+          <a href="/register" class="btn butn-color" type="button" >Sign-up</a>
+        </div>
+      </div>
+       </div>
+    </div>
+
+  {% include 'banner.html'%}  
+
+    <div class="container">
+    <h2 class="text-center mt-3 mb-4" style="color: rgb(80, 80, 80);">About Job Portal</h2>
+    <p class="lead">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    
+      <div class="text-center">
+        <a href="/contactus" type="button" class="btn btn-lg butn-color mb-4">Contact us</a>        
+        </div>
+      </div>
+{%include 'footer.html'%}
+  </body>
+</html>

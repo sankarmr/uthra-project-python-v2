@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Contact Us</title>
     {% include 'bootstrap.html'%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </head>
   <body>
-    {% include 'nav.html'%}
+    <div class="container-fluid fixed-top bg-white pt-2">
+       <div class="row justify-content-between">
+        <div class="col-4">
+          <div>
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <img src="https://uthra-project-python-v2--sankarmr.repl.co/static/U-icon.png" width="40" height="40" class="ms-3" />          
+            </a>
+          </div>
+        </div>
+      <div class="col-4">
+        <div>
+          <ul class="nav justify-content-center">
+            <li><a href="/" class="nav-link px-2 reset-btn">Home</a></li>
+            <li><a href="/contactus" class="nav-link px-2 link-secondary reset-btn">Contact Us</a></li>
+            <li><a href="/about" class="nav-link px-2 reset-btn">About</a></li>        
+            </ul>          
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="nav justify-content-end">
+          <a href="/login" class="btn reset-btn me-2 mb-1 mb-md-0" type="button">Login</a>
+          <a href="/register" class="btn butn-color" type="button" >Sign-up</a>
+        </div>
+      </div>
+       </div>
+    </div>
+    
     {% include 'banner.html'%}
-    <form>
+
+    {% if name %}
+        <div class="container alert alert-success alert-dismissible fade show mt-2" role="alert">          
+        <strong>Hi..!  {{name}}. </strong> Thank you for contacting us. Your queries have been successfully submitted on {{date}}. We will get back to you soon.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>            
+      {%endif%}
+    
+    <form action="/contactus" method="post">
     <div class="container">
       <h1 class="text-center mb-2" style="color: rgb(80, 80, 80);">Contact Us</h1>
     </div>
@@ -14,20 +50,20 @@
     <div class="row">
       <div class="col-8">      
       <div class="form-group">
-        <label for="contact_fullname">Your Name</label>
-        <input type="text" class="form-control mt-2" id="contact_fullname" placeholder="Full Name" required>
+        <label for="fullname">Your Name</label>
+        <input type="text" class="form-control mt-2" id="fullname" name="fullname" placeholder="Full Name" required>
       </div>
       <div class="form-group mt-3">
-        <label for="contact_email">Valid Email</label>
-        <input type="email" class="form-control mt-2" id="contact_email" placeholder="Email">
+        <label for="email">Valid Email</label>
+        <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Email" required>
       </div> 
       <div class="form-group mt-3">
         <label for="contact_number">Contact Number</label>
-        <input type="number" class="form-control mt-2" id="contact_number" placeholder="Contact Number">
+        <input type="number" class="form-control mt-2" id="contact_number" name="contact_number" placeholder="Contact Number">
       </div>
       <div class="form-group mt-3">
-        <label for="text_area">Your Queries</label>
-        <textarea class="form-control mt-2" id="text_area" rows="4" placeholder="Type Your Queries"></textarea>
+        <label for="queries">Your Queries</label>
+        <textarea class="form-control mt-2" id="queries" rows="4" name="queries" placeholder="Type Your Queries" required></textarea>
       </div>
       </div>      
       <div class="col-4">
@@ -36,7 +72,7 @@
           </div>
       </div>    
     </div>
-      <input type="button" class="btn btn-primary mt-4" value="Submit" />
+      <input type="submit" class="btn butn-color mt-4" value="Submit" />
     </div>      
     </form>
     {% include 'footer.html' %}

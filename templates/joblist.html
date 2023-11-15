@@ -1,12 +1,15 @@
 <div class="border-bottom row" style="margin-bottom: 16px;">
   <div class="col-9 mb-2">
-          <h4 style="color: rgb(120,120,120)">{{job['title']}}</h4>
+          <h4 class="title_job" style="color: rgb(120,120,120)">{{job['title']}}</h4>
           <div><b>Location:</b> {{job['location']}}</div>
           {% if 'salary' in job %}          
           <div>Salary: {{job['currency']}} {{job['salary']}}</div>
           {%endif%}
   </div>
-  <div class="col-3">
-      <a href="/job/{{job['id']}}" type="button" class="btn btn-outline-primary">Apply</a>
+  <!-- <div class="col-3">            
+      <a href="/job/{{job['id']}}" type="button" class="btn reset-btn">View Details</a>
+  </div> -->
+  <div class="col-3">      
+      <button class="btn reset-btn" type="submit" value="{{job['id']}}" name="job_{{job['id']}}">View Details</button>    
   </div>
         </div>

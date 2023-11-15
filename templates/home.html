@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Job Portal</title>
+    <title>Portal Home</title>
     {%include 'bootstrap.html'%}
   </head>
   <body>
+    <form action="/home/job" method="post">
     {%include 'nav.html'%}
     {% include 'banner.html'%}
-    <div class="container">
+    <div class="container job_list">
     <h2 class="text-center mt-3 mb-4" style="color: rgb(80, 80, 80);">About Job Portal</h2>
     <p class="lead">
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </p>
     <h2 class="text-center mt-3 mb-4 pb-2 border-bottom" style="color: rgb(80, 80, 80)">Job Positions Open</h2>
     
-      {% for job in jobs %}
+      {% for job in jobsHome %}
         {%include 'joblist.html'%}
       {% endfor %}
       <div class="text-center">
-        <a href="/contactus" type="button" class="btn btn-lg btn-primary mb-4">Contact us</a>        
+        <a href="/contactus" type="button" class="btn btn-lg butn-color mb-4">Contact us</a>        
         </div>
       </div>
+    </form>
 {%include 'footer.html'%}
   </body>
   
